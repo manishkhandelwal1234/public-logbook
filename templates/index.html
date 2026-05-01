@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Public Log Book</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Log Book</h1>
+
+<a class="btn" href="/add">Add New Log</a>
+<a class="btn" href="/export">Download Excel</a>
+
+<table>
+    <tr>
+        <th>DateTime</th>
+        <th>Shift</th>
+        <th>Machine</th>
+        <th>Operator</th>
+        <th>Status</th>
+        <th>Problem</th>
+        <th>Action Taken</th>
+        <th>Remarks</th>
+    </tr>
+
+    {% for log in logs %}
+    <tr>
+        <td>{{ log[0] }}</td>
+        <td>{{ log[1] }}</td>
+        <td>{{ log[2] }}</td>
+        <td>{{ log[3] }}</td>
+        <td>{{ log[4] }}</td>
+        <td>{{ log[5] }}</td>
+        <td>{{ log[6] }}</td>
+        <td>{{ log[7] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

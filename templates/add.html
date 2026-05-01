@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Log</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Add Log Entry</h1>
+
+<form method="POST">
+
+    <label>Shift</label>
+    <select name="shift" required>
+        <option>Day</option>
+        <option>Night</option>
+    </select>
+
+    <label>Machine</label>
+    <input name="machine" required>
+
+    <label>Operator</label>
+    <input name="operator" required>
+
+    <label>Status</label>
+    <select name="status" required>
+        <option>Normal</option>
+        <option>Abnormal</option>
+        <option>Breakdown</option>
+        <option>Maintenance</option>
+    </select>
+
+    <label>Problem</label>
+    <textarea name="problem"></textarea>
+
+    <label>Action Taken</label>
+    <textarea name="actiontaken"></textarea>
+
+    <label>Remarks</label>
+    <textarea name="remarks"></textarea>
+
+    <button type="submit">Save Log</button>
+
+</form>
+
+<br>
+<a href="/">Back</a>
+
+</body>
+</html>
