@@ -13,21 +13,28 @@
 
 <table>
     <tr>
+        
         <th>DateTime</th>
+        <th>Plant</th>
         <th>Shift</th>
         <th>Machine</th>
-        <th>Operator</th>
+        <th>Department</th>
+        <th>Person Attended</th>
         <th>Status</th>
         <th>Problem</th>
         <th>Action Taken</th>
         <th>Remarks</th>
+        <th>Action</th>
     </tr>
 
-    {% for row in rows %}
+    {% for i, row in enumerate(rows, start=2) %}
 <tr>
     {% for col in row %}
     <td>{{ col }}</td>
     {% endfor %}
+    <td>
+        <a href="/delete/{{ i }}" onclick="return confirm('Delete this log?')">Delete</a>
+    </td>
 </tr>
 {% endfor %}
 </table>

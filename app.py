@@ -50,3 +50,8 @@ def add():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
+@app.route("/delete/<int:row_id>")
+def delete(row_id):
+    sheet.delete_rows(row_id)
+    return redirect("/")
