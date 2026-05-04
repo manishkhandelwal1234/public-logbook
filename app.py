@@ -34,9 +34,11 @@ def add():
     if request.method == "POST":
         sheet.append_row([
             datetime.now().strftime("%m-%d-%Y %H:%M:%S"),
-            request.form.get("shift"),
-            request.form.get("machine"),
-            request.form.get("operator"),
+            request.form.get("Plant"),
+            request.form.get("Shift"),
+            request.form.get("Machine"),
+            request.form.get("Department"),
+            request.form.get("Person Attended"),
             request.form.get("status"),
             request.form.get("problem"),
             request.form.get("actiontaken"),

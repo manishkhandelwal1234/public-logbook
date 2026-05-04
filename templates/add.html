@@ -10,16 +10,32 @@
 
 <form method="POST">
 
+    
+
+    <label>Plant</label>
+    <select name="Plant" required>
+        <option>ERW Plant</option>
+        <option>Threading</option>
+        <option>Heat Treatment</option>
+    </select>
+
     <label>Shift</label>
     <select name="shift" required>
         <option>Day</option>
         <option>Night</option>
     </select>
 
+
     <label>Machine</label>
     <input name="machine" required>
 
-    <label>Operator</label>
+    <label>Deprtment</label>
+    <select name="Department" required>
+        <option>Electrical</option>
+        <option>Mechanical</option>
+    </select>
+
+    <label>Person Attended</label>
     <input name="operator" required>
 
     <label>Status</label>
@@ -28,6 +44,7 @@
         <option>Abnormal</option>
         <option>Breakdown</option>
         <option>Maintenance</option>
+        <option>Project</option>
     </select>
 
     <label>Problem</label>
