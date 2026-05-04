@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Public Log Book</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-
-<h1>Log Book</h1>
-
-<a class="btn" href="/add">Add New Log</a>
-
-
 <table>
     <tr>
-        
         <th>DateTime</th>
         <th>Plant</th>
         <th>Shift</th>
@@ -27,17 +13,14 @@
         <th>Action</th>
     </tr>
 
-    {% for i, row in enumerate(rows, start=2) %}
-<tr>
-    {% for col in row %}
-    <td>{{ col }}</td>
+    {% for sheet_row_number, row in rows_with_numbers %}
+    <tr>
+        {% for col in row %}
+        <td>{{ col }}</td>
+        {% endfor %}
+        <td>
+            <a href="/delete/{{ sheet_row_number }}" onclick="return confirm('Delete this log?')">Delete</a>
+        </td>
+    </tr>
     {% endfor %}
-    <td>
-        <a href="/delete/{{ i }}" onclick="return confirm('Delete this log?')">Delete</a>
-    </td>
-</tr>
-{% endfor %}
 </table>
-
-</body>
-</html>

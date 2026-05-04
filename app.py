@@ -24,10 +24,15 @@ sheet = client.open("PublicLogBook").sheet1
 @app.route("/")
 def index():
     data = sheet.get_all_values()
-    headers = data[0]
     rows = data[1:]
-    rows.reverse()
-    return render_template("index.html", headers=headers, rows=rows)
+
+    rows_with_numbers = []
+    for sheet_row_number, row in enumerate(rows, start=2):
+        rows_with_numbers.append((sheet_row_number, row))
+
+    rows_with_numbers.reverse()
+
+    return render_template("index.html", rows_with_numbers=rows_with_numbers)
 
 @app.route("/add", methods=["GET", "POST"])
 def add():
@@ -48,10 +53,12 @@ def add():
 
     return render_template("add.html")
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
-
 @app.route("/delete/<int:row_id>")
 def delete(row_id):
     sheet.delete_rows(row_id)
     return redirect("/")
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+
+
