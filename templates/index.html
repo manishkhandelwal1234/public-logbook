@@ -9,7 +9,7 @@
 <h1>Log Book</h1>
 
 <a class="btn" href="/add">Add New Log</a>
-<a class="btn" href="/export">Download Excel</a>
+
 
 <table>
     <tr>
@@ -23,18 +23,13 @@
         <th>Remarks</th>
     </tr>
 
-    {% for log in logs %}
-    <tr>
-        <td>{{ log[0] }}</td>
-        <td>{{ log[1] }}</td>
-        <td>{{ log[2] }}</td>
-        <td>{{ log[3] }}</td>
-        <td>{{ log[4] }}</td>
-        <td>{{ log[5] }}</td>
-        <td>{{ log[6] }}</td>
-        <td>{{ log[7] }}</td>
-    </tr>
+    {% for row in rows %}
+<tr>
+    {% for col in row %}
+    <td>{{ col }}</td>
     {% endfor %}
+</tr>
+{% endfor %}
 </table>
 
 </body>
